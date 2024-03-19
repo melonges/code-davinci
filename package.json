@@ -7,13 +7,16 @@
     "build": "tsc",
     "watch": "tsc -w",
     "dev": "nodemon  ./dist/app.js",
+    "dev:bun": "bun --watch ./src/app.ts",
     "start": "node ./dist/app.js",
+    "start:bun": "bun ./src/app.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/bun": "^1.0.10",
     "@typescript-eslint/eslint-plugin": "^7.0.2",
     "@typescript-eslint/parser": "^7.0.2",
     "eslint": "^8.56.0",
