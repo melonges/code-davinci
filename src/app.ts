@@ -19,7 +19,7 @@ class Bot {
   init() {
     this.commands = [new StartCommand(this.bot)];
     this.commands.forEach((command) => command.handle());
-    this.bot.launch().then(() => console.log("Bot started"));
+    this.bot.launch(() => console.log("Bot started"));
   }
 }
 
