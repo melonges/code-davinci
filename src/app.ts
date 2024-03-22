@@ -5,6 +5,7 @@ import { Command } from "./commands/command.class";
 import { StartCommand } from "./commands/start.command";
 import { stage } from "./scenes";
 import { IBotContext } from "./context/context.interface";
+import { actionMachine } from "./action";
 
 class Bot {
   bot: Telegraf<IBotContext>;
@@ -13,6 +14,7 @@ class Bot {
   constructor(private readonly configServce: IConfigService) {
     this.bot = new Telegraf(this.configServce.get("TOKEN"));
     this.bot.use(session());
+    this.bot.use(actionMachine.middleware());
     this.bot.use(stage.middleware());
   }
 
