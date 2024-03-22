@@ -4,20 +4,30 @@ import { validateNickname } from "../validators/nickname.validator";
 import { UserEntity } from "../entities/user.entities";
 import { IBotContext } from "../context/context.interface";
 import { ProgrammingLanguage } from "../entities/language.entities";
-import { UserRepository } from "../repositories/user.repository";
+import { ActionTypes } from "../action/action.types";
 
-export const createAccountScene = new Scenes.BaseScene<IBotContext>(
-  "SCENARIO_TYPE_SCENE_ID",
+export const createAccountScene = new Scenes.WizardScene<IBotContext>(
+  SceneTypes.CREATE_ACCOUNT,
+  (ctx) => {
+    ctx.action.state = {
+      user: {
+        ID: ctx.from?.id,
+      },
+    };
+
+    ctx.action.enter(ActionTypes.GET_USER_NAME);
+    ctx.action.enter(ActionTypes.GET_USER_GENDER);
+    ctx.action.enter(ActionTypes.GET_USER_BIRTH_YEAR);
+    ctx.action.enter(ActionTypes.GET_USER_CODE_EXAMPLE);
+    ctx.action.enter(ActionTypes.GET_USER_LOCATION);
+
+    ctx.wizard.next();
+  },
+  (ctx) => {
+    console.log(ctx.action.state.user);
+    ctx.reply("Your account has been created successfully");
+  }
 );
-
-createAccountScene.enter(async (ctx) => {
-  ctx.reply("What's your name?");
-  createAccountScene.on("message", async (ctx) => {
-    console.log(ctx.message);
-  });
-});
-
-// createAccountScene.drop("text", async (ctx) => {});
 
 // export const createAccountScene = new Scenes.WizardScene<IBotContext>(
 //   SceneTypes.CREATE_ACCOUNT,
