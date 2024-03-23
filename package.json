@@ -19,8 +19,8 @@
     "@types/bun": "^1.0.10",
     "@typescript-eslint/eslint-plugin": "^7.0.2",
     "@typescript-eslint/parser": "^7.0.2",
+    "bun-types": "^1.0.35",
     "eslint": "^8.56.0",
-    "nodemon": "^3.0.2",
     "prisma": "^5.7.1",
     "typescript": "^5.3.3"
   },
