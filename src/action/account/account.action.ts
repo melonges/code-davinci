@@ -1,7 +1,7 @@
 import { Markup } from "telegraf";
 import { Action } from "telegraf-extended";
-import { IBotContext } from "../../context/context.interface";
-import { UserEntity } from "../../entities/user.entities";
+import type { IBotContext } from "../../context/context.interface";
+import type { UserEntity } from "../../entities/user.entities";
 
 export const getUserNameAction = new Action<
   IBotContext,
@@ -38,7 +38,7 @@ export const getUserGenderAction = new Action<
 getUserGenderAction.send((ctx) => {
   ctx.reply(
     "What's your gender?",
-    Markup.keyboard(["Male", "Female"]).resize()
+    Markup.keyboard(["Male", "Female"]).resize(),
   );
 });
 

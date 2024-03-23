@@ -1,4 +1,4 @@
-import { Code } from "./code.entities";
+import type { Code } from "./code.entities";
 
 export interface UserEntity {
   id: number;

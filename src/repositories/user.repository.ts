@@ -1,5 +1,5 @@
 import { ProgrammingLanguage } from "../entities/language.entities";
-import { UserEntity } from "../entities/user.entities";
+import type { UserEntity } from "../entities/user.entities";
 import { prisma } from "./prisma.client";
 export class UserRepository {
   private client = prisma;

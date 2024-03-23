@@ -1,6 +1,6 @@
-import { DotenvParseOutput, config } from "dotenv";
-import { IConfigService } from "./config.interface";
-import { EnvTypes } from "./env";
+import { type DotenvParseOutput, config } from "dotenv";
+import type { IConfigService } from "./config.interface";
+import type { EnvTypes } from "./env";
 
 export class ConfigServce implements IConfigService {
   private config: DotenvParseOutput;

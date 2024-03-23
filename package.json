@@ -6,11 +6,8 @@
   "scripts": {
     "build": "tsc",
     "watch": "tsc -w",
-    "dev": "nodemon  ./dist/app.js",
-    "dev:bun": "bun --watch ./src/app.ts",
-    "start": "node ./dist/app.js",
-    "start:bun": "bun ./src/app.ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "bun --watch ./src/app.ts",
+    "start": "bun ./src/app.ts"
   },
   "keywords": [],
   "author": "",
@@ -19,7 +16,6 @@
     "@types/bun": "^1.0.10",
     "@typescript-eslint/eslint-plugin": "^7.0.2",
     "@typescript-eslint/parser": "^7.0.2",
-    "bun-types": "^1.0.35",
     "eslint": "^8.56.0",
     "prisma": "^5.7.1",
     "typescript": "^5.3.3"

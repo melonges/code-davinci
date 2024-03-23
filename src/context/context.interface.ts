@@ -1,14 +1,14 @@
 import { Context, Scenes } from "telegraf";
-import { WizardSessionData } from "telegraf/typings/scenes";
-import { UserEntity } from "../entities/user.entities";
-import { Message, Update } from "telegraf/typings/core/types/typegram";
-import { ActionMachineContext } from "telegraf-extended";
+import type { WizardSessionData } from "telegraf/scenes";
+import type { UserEntity } from "../entities/user.entities";
+import type { Message, Update } from "telegraf/types";
+import type { ActionMachineContext } from "telegraf-extended";
 
 interface SessionData extends WizardSessionData {
   user: UserEntity;
 }
 
-interface Session extends Scenes.WizardSession<SessionData> {}
+interface Session extends Scenes.WizardSession<SessionData> { }
 
 export interface IBotContext extends Context {
   session: Session & SessionData;

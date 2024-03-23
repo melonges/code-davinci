@@ -1,8 +1,8 @@
 import { Markup, Scenes } from "telegraf";
 import { SceneTypes } from "./types.scenes";
 import { validateNickname } from "../validators/nickname.validator";
-import { UserEntity } from "../entities/user.entities";
-import { IBotContext } from "../context/context.interface";
+import type { UserEntity } from "../entities/user.entities";
+import type { IBotContext } from "../context/context.interface";
 import { ProgrammingLanguage } from "../entities/language.entities";
 import { ActionTypes } from "../action/action.types";
 
@@ -26,7 +26,7 @@ export const createAccountScene = new Scenes.WizardScene<IBotContext>(
   (ctx) => {
     console.log(ctx.action.state.user);
     ctx.reply("Your account has been created successfully");
-  }
+  },
 );
 
 // export const createAccountScene = new Scenes.WizardScene<IBotContext>(

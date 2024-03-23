@@ -1,5 +1,5 @@
 import { ActionMachine } from "telegraf-extended";
-import { IBotContext } from "../context/context.interface";
+import type { IBotContext } from "../context/context.interface";
 import {
   getUserGenderAction,
   getUserNameAction,

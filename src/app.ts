@@ -1,10 +1,10 @@
 import { Telegraf, session } from "telegraf";
-import { IConfigService } from "./config/config.interface";
+import type { IConfigService } from "./config/config.interface";
 import { ConfigServce } from "./config/config.service";
 import { Command } from "./commands/command.class";
 import { StartCommand } from "./commands/start.command";
 import { stage } from "./scenes";
-import { IBotContext } from "./context/context.interface";
+import type { IBotContext } from "./context/context.interface";
 import { actionMachine } from "./action";
 
 class Bot {
