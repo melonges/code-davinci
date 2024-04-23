@@ -8,10 +8,10 @@ interface SessionData extends WizardSessionData {
   user: UserEntity;
 }
 
-interface Session extends Scenes.WizardSession<SessionData> { }
+interface Session extends Scenes.WizardSession<SessionData> {}
 
 export interface IBotContext extends Context {
-  session: Session & SessionData;
+  session: Session;
   scene: Scenes.SceneContextScene<IBotContext, SessionData>;
   wizard: Scenes.WizardContextWizard<IBotContext>;
   message: Update.New & Update.NonChannel & Message.TextMessage;

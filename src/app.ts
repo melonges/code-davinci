@@ -6,12 +6,20 @@ import { StartCommand } from "./commands/start.command";
 import { stage } from "./scenes";
 import type { IBotContext } from "./context/context.interface";
 import { actionMachine } from "./action";
+import { Container, inject, injectable } from "inversify";
+import "reflect-metadata";
 
+export const container = new Container({
+  autoBindInjectable: true,
+  defaultScope: "Singleton",
+});
+
+@injectable()
 class Bot {
   bot: Telegraf<IBotContext>;
   commands: Command[] = [];
 
-  constructor(private readonly configServce: IConfigService) {
+  constructor(@inject(ConfigServce) private configServce: ConfigServce) {
     this.bot = new Telegraf(this.configServce.get("TOKEN"));
     this.bot.use(session());
     this.bot.use(actionMachine.middleware());
@@ -21,9 +29,9 @@ class Bot {
   init() {
     this.commands = [new StartCommand(this.bot)];
     this.commands.forEach((command) => command.handle());
-    this.bot.launch(() => console.log("Bot started"));
+    this.bot.launch();
+    console.log("Bot started");
   }
 }
 
-const bot = new Bot(new ConfigServce());
-bot.init();
+const bot = container.get(Bot).init();
