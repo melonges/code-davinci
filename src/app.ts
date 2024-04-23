@@ -1,6 +1,6 @@
 import { Telegraf, session } from "telegraf";
 import type { IConfigService } from "./config/config.interface";
-import { ConfigServce } from "./config/config.service";
+import { ConfigService as ConfigService } from "./config/config.service";
 import { Command } from "./commands/command.class";
 import { StartCommand } from "./commands/start.command";
 import { stage } from "./scenes";
@@ -19,8 +19,8 @@ class Bot {
   bot: Telegraf<IBotContext>;
   commands: Command[] = [];
 
-  constructor(@inject(ConfigServce) private configServce: ConfigServce) {
-    this.bot = new Telegraf(this.configServce.get("TOKEN"));
+  constructor(@inject(ConfigService) private configService: ConfigService) {
+    this.bot = new Telegraf(this.configService.get("TOKEN"));
     this.bot.use(session());
     this.bot.use(actionMachine.middleware());
     this.bot.use(stage.middleware());

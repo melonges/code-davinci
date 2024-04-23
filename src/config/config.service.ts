@@ -5,7 +5,7 @@ import { injectable } from "inversify";
 import "reflect-metadata";
 
 @injectable()
-export class ConfigServce implements IConfigService {
+export class ConfigService implements IConfigService {
   private config: DotenvParseOutput;
   constructor() {
     const { error, parsed } = config();
