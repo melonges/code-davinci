@@ -1,10 +1,10 @@
-import { ActionMachine } from "telegraf-extended";
-import type { IBotContext } from "../context/context.interface";
+import type { IBotContext } from '../context/context.interface';
+import { ActionMachine } from '../lib/telegraf-extended';
 import {
   getUserGenderAction,
   getUserNameAction,
-} from "./account/account.action";
-import { ActionTypes } from "./action.types";
+} from './account/account.action';
+import { ActionTypes } from './action.types';
 
 export const actionMachine = new ActionMachine<IBotContext>();
 

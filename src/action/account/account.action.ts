@@ -1,7 +1,7 @@
-import { Markup } from "telegraf";
-import { Action } from "telegraf-extended";
-import type { IBotContext } from "../../context/context.interface";
-import type { UserEntity } from "../../entities/user.entities";
+import type { IBotContext } from '../../context/context.interface';
+import type { UserEntity } from '../../entities/user.entities';
+import { Action } from '../../lib/telegraf-extended';
+import { Markup } from 'telegraf';
 
 export const getUserNameAction = new Action<
   IBotContext,
@@ -14,12 +14,12 @@ getUserNameAction.filter((ctx) => {
   // TODO: ADD VALIDATE throw ERROR
 
   if (!ctx.message.text) {
-    ctx.reply("Enter text");
+    ctx.reply('Enter text');
     return false;
   }
 
   if (ctx.message.text.length < 2 && ctx.message.text.length > 50) {
-    ctx.reply("Nickname must be between 2 and 50 characters");
+    ctx.reply('Nickname must be between 2 and 50 characters');
     return false;
   }
 
@@ -38,15 +38,15 @@ export const getUserGenderAction = new Action<
 getUserGenderAction.send((ctx) => {
   ctx.reply(
     "What's your gender?",
-    Markup.keyboard(["Male", "Female"]).resize(),
+    Markup.keyboard(['Male', 'Female']).resize()
   );
 });
 
 getUserGenderAction.filter((ctx) => {
   const gender = ctx.message.text;
 
-  if (!gender || (gender !== "Male" && gender !== "Female")) {
-    ctx.reply("Please enter a valid gender");
+  if (!gender || (gender !== 'Male' && gender !== 'Female')) {
+    ctx.reply('Please enter a valid gender');
     return false;
   }
 
@@ -54,5 +54,5 @@ getUserGenderAction.filter((ctx) => {
 });
 
 getUserGenderAction.result((ctx) => {
-  ctx.action.state.user.gender = ctx.message.text === "Male";
+  ctx.action.state.user.gender = ctx.message.text === 'Male';
 });

@@ -7,25 +7,35 @@
     "build": "tsc",
     "watch": "tsc -w",
     "dev": "bun --watch ./src/app.ts",
-    "start": "bun ./src/app.ts"
+    "start": "bun ./src/app.ts",
+    "migrate": "prisma migrate deploy",
+    "studio": "prisma studio",
+    "lint": "eslint 'src/**/*.{js,jsx,ts,tsx}'",
+    "lint:fix": "eslint 'src/**/*.{js,jsx,ts,tsx}' --fix",
+    "format": "prettier --write 'src/**/*.{js,jsx,ts,tsx,json,md}'",
+    "format:check": "prettier --check 'src/**/*.{js,jsx,ts,tsx,json,md}'"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@types/bun": "^1.0.10",
-    "@typescript-eslint/eslint-plugin": "^7.0.2",
-    "@typescript-eslint/parser": "^7.0.2",
-    "eslint": "^8.56.0",
+    "@typescript-eslint/eslint-plugin": "^8.21.0",
+    "@typescript-eslint/parser": "^8.21.0",
+    "eslint": "^9.18.0",
+    "eslint-config-prettier": "^10.0.1",
+    "eslint-plugin-prettier": "^5.2.3",
+    "prettier": "^3.4.2",
+    "prettier-plugin-organize-imports": "^4.1.0",
     "prisma": "^5.7.1",
     "typescript": "^5.3.3"
   },
   "dependencies": {
     "@prisma/client": "5.7.1",
+    "@prisma/studio": "^0.505.0",
     "dotenv": "^16.3.1",
     "inversify": "^6.0.2",
     "reflect-metadata": "^0.2.2",
-    "telegraf": "^4.15.3",
-    "telegraf-extended": "^1.0.3"
+    "telegraf": "^4.15.3"
   }
 }
