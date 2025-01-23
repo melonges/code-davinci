@@ -13,7 +13,7 @@ if [ "$MODE" = "dev" ]; then
   bun run studio & bun run dev
 elif [ "$MODE" = "prod" ]; then
   echo "Running in production mode"
-  bun run studio & bun run start
+   bun run start
 else
   echo "Invalid MODE value. Please set MODE to 'dev' or 'start'."
   exit 1
